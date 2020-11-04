@@ -22,6 +22,7 @@ import co.mongde.board.command.MemberForm;
 import co.mongde.board.command.MemberInsertAction;
 import co.mongde.board.command.MemberListAction;
 import co.mongde.board.common.Action;
+import co.mongde.users.command.EmpStat;
 import co.mongde.users.common.DeleteUsers;
 import co.mongde.users.common.GetUsers;
 import co.mongde.users.common.GetUsersList;
@@ -49,11 +50,14 @@ public class FrontController extends HttpServlet {
 		map.put("/ajax/memberList.do", new AjaxMemberList());
 		map.put("/ajax/memberInsert.do", new AjaxMemberInsertAction());
 		
+		//users
 		map.put("/ajax/usersList.do", new GetUsersList());  //전체조회
 		map.put("/ajax/users.do", new GetUsers());		    //단건조회
 		map.put("/ajax/usersInsert.do", new InsertUsers()); //등
 		map.put("/ajax/usersUpdate.do", new UpdateUsers()); //수정
 		map.put("/ajax/usersDelete.do", new DeleteUsers()); //삭제
+		
+		map.put("/ajax/empStat.do", new EmpStat());
 		
 		// 요청들을 정의함
 		map.put("/main.do", new MainAction()); //처음 들어오는 페이지 처리 index.jsp
